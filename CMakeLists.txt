@@ -32,57 +32,12 @@ if(NOT SDL_TTF_FOUND)
 endif()
 
 
-#file(GLOB SOURCES src/*.cpp)
+file(GLOB SOURCES_BASE src/*.cpp)
+file(GLOB SOURCES_ENTITY src/entity/*.cpp)
 
-## manual entries for now
-set(SOURCES ./src/AIGameView.cpp 
-./src/BlockEntity.cpp 
-./src/BombEntity.cpp 
-./src/DataReader.cpp
-./src/DroneEntity.cpp 
-./src/DynamicMap.cpp 
-./src/EffectEntity.cpp 
-./src/EggEntity.cpp 
-./src/EggThiefEntity.cpp 
-./src/EnPlusEntity.cpp 
-./src/EnergyDropEntity.cpp 
-./src/EntityFactory.cpp 
-./src/EntityManager.cpp 
-./src/EntityMessage.cpp 
-./src/EntityMessageQueue.cpp 
-./src/EntityRenderer.cpp 
-./src/EntityRendererFactory.cpp 
-./src/ExplosionEntity.cpp 
-./src/GameEngine.cpp 
-./src/GameEntity.cpp 
-./src/GameSound.cpp 
-./src/IQPowerupEntity.cpp 
-./src/InfoPanel.cpp 
-./src/InputException.cpp 
-./src/InputHandler.cpp 
-./src/Map.cpp 
-./src/MickAssets.cpp 
-./src/MickBaseInput.cpp 
-./src/MickBaseSound.cpp 
-./src/MickSDLAssets.cpp 
-./src/MickSDLInput.cpp 
-./src/MickSDLSound.cpp 
-./src/MickUtil.cpp 
-./src/MineEntity.cpp 
-./src/PlayerCharacterEntity.cpp 
-./src/RobotEntity.cpp 
-./src/RocketFiredEntity.cpp 
-./src/RocketSpinEntity.cpp 
-./src/RuntimeException.cpp 
-./src/SDLHelper.cpp 
-./src/SimpleBrain.cpp 
-./src/SimpleMovingEntity.cpp 
-./src/SpawningPool.cpp 
-./src/WallEaterEntity.cpp 
-./src/main.cpp)
+set(SOURCES ${SOURCES_BASE} ${SOURCES_ENTITY})
 
-
-include_directories(${SDL_INCLUDE_DIR} ${SDL_TTF_INCLUDE_DIRS} ${SDL_MIXER_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/src )
+include_directories(${SDL_INCLUDE_DIR} ${SDL_TTF_INCLUDE_DIRS} ${SDL_MIXER_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/src/entity )
 add_executable(BitRiot ${SOURCES})
 
 
